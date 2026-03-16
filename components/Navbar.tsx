@@ -1,12 +1,8 @@
-import Link from 'next/link'
 import { Fragment } from 'react'
 
+import { ActiveLink } from './ActiveLink'
 import { Path } from '@/enums/Path'
-
-interface NavItem {
-  name: string
-  path: Path
-}
+import type { NavItem } from '@/interfaces/NavItem'
 
 const navItems: NavItem[] = [
   { name: 'Home', path: Path.Home },
@@ -22,12 +18,7 @@ export const Navbar = () => {
         {navItems.map((item, index) => (
           <Fragment key={item.path}>
             <li>
-              <Link
-                href={item.path}
-                className="text-lg font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-              >
-                {item.name}
-              </Link>
+              <ActiveLink {...item} />
             </li>
 
             {index === 0 && <span className="grow"></span>}
