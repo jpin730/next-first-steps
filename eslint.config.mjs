@@ -37,13 +37,13 @@ const eslintConfig = defineConfig([
         {
           groups: [
             ['builtin', 'external'],
-            ['internal', 'parent', 'sibling', 'index', 'object', 'type'],
+            ['internal', 'parent', 'sibling', 'index', 'object'],
             'unknown',
           ],
           'newlines-between': 'always',
           alphabetize: { order: 'asc', orderImportKind: 'asc', caseInsensitive: true },
           named: { enabled: true, types: 'types-first' },
-          sortTypesGroup: true,
+          // sortTypesGroup: true,
         },
       ],
     },
