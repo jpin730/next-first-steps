@@ -27,3 +27,26 @@ A Next.js 16 project exploring Next.js 16 with TypeScript. Built with Node.js 24
 ## Linting & Formatting
 
 Staged files are automatically linted with ESLint and formatted with Prettier on each commit. The commit is aborted if any issues remain unfixed.
+
+## Docker
+
+To build the Docker container, use the following commands:
+
+```bash
+docker build --build-arg NODE_VERSION=$(cat .nvmrc) --tag next-first-steps .
+```
+
+> NOTE: Node version is read from the `.nvmrc` file to ensure consistency between local development and the Docker environment.
+
+To run the Docker container, use:
+
+```bash
+docker run --detach --publish 3000:3000 next-first-steps
+```
+
+To stop the container and clean up resources, use:
+
+```bash
+docker stop $(docker ps -q --filter ancestor=next-first-steps)
+docker rm $(docker ps -a -q --filter ancestor=next-first-steps)
+```
